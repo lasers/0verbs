@@ -8,4 +8,7 @@ python 0verbs.py
 
 # to query the database
 python 0verbs.py 'curl'
+
+# or use the slow option
+pkg_info -aQ 'curl'
 ```
