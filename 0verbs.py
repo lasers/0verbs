@@ -32,7 +32,7 @@ class PackageFinder(object):
         the_list = os.path.join(os.getenv('HOME'), '.package_list')
 
         if not os.path.isfile(the_list):
-            ftp_url = 'ftp://ftp.openbsd.org/pub/OpenBSD/{release}/{arch}/SHA256'\
+            ftp_url = 'ftp://ftp.openbsd.org/pub/OpenBSD/{release}/packages/{arch}/SHA256'\
             .format(release=self.spawN('uname', '-r'), arch=self.spawN('machine', '-a'))
 
             print('Creating a small local database from all {0} packages'\
