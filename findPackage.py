@@ -33,8 +33,7 @@ class PackageFinder(object):
 
         if not os.path.isfile(the_list):
             ftp_url = 'ftp://ftp.openbsd.org/pub/OpenBSD/{release}/packages/{arch}/SHA256'\
-            .format(release=self.returN('uname', '-r'),
-                arch=self.returN('machine', '-a'))
+            .format(release=self.spawN('uname', '-r'), arch=self.spawN('machine', '-a'))
 
             print('Creating a small local database from all {0} packages'\
             .format(ftp_url))
@@ -60,7 +59,7 @@ class PackageFinder(object):
                         found_match, _ = os.path.splitext(current_line)
                         print(found_match)
 
-    def returN(self, *arg):
+    def spawN(self, *arg):
         return check_output([arg[0], arg[1]]).decode('utf-8').replace('\n', '')
 
 if __name__ == '__main__':
