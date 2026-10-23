@@ -32,13 +32,13 @@ class PackageFinder(object):
         the_list = os.path.join(os.getenv('HOME'), '.package_list')
 
         if not os.path.isfile(the_list):
-            ftp_url = 'ftp://ftp.openbsd.org/pub/OpenBSD/{release}/packages/{arch}/SHA256'\
+            ftp_url = 'http://ftp.openbsd.org/pub/OpenBSD/{release}/packages/{arch}/SHA256'\
             .format(release=self.spawN('uname', '-r'), arch=self.spawN('machine', '-a'))
 
             print('Creating a small local database from all {0} packages'\
             .format(ftp_url))
 
-            all_packages = urlopen(ftp_url).read().decode('utf-8').split('\n')
+            all_packages = urlopen(ftp_url, timeout=120).read().decode('utf-8').split('\n')
 
             package_as_txt = str()
             for current_package in all_packages:
