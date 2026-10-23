@@ -4,8 +4,8 @@ Download (local .txt database) and search for OpenBSD package. No need to use th
 Download this fellow and run it without any arguments, so it can download small `.txt` database first:
 
 ```bash
-python findPackage.py
+python 0verbs.py
 
 # to query the database
-python findPackage.py 'curl'
+python 0verbs.py 'curl'
 ```
